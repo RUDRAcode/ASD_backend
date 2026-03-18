@@ -20,8 +20,7 @@ app.add_middleware(
 models = {
     "model-1": load_model(get_resNet(),"asd_model.pth"),
     "model-2": load_model(get_denseNet(),"asd_model_denseNet.pth"),
-    "model-3": load_model(get_ConvNext(),"asd_model_ConveXtiny.pth"),
-    "model-4": load_model(get_EfficientNet(),"asd_model_efficientNet.pth"),
+    "model-3": load_model(get_EfficientNet(),"asd_model_efficientNet.pth"),
 }
 
 @app.get("/")
