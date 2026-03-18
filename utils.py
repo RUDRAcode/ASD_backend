@@ -21,12 +21,6 @@ def get_denseNet():
     model.classifier = nn.Linear(model.classifier.in_features, 2)
     return model
 
-def get_ConvNext():
-    model = models.convnext_tiny(pretrained=True)
-    num_ftrs = model.classifier[2].in_features
-    model.classifier[2] = nn.Linear(num_ftrs, 2)
-    return model
-
 def get_EfficientNet():
     model = models.efficientnet_b0(pretrained=True)
     num_ftrs = model.classifier[1].in_features
@@ -47,8 +41,7 @@ transform = transforms.Compose([
 mod = {
     "model-1": load_model(get_resNet(),"asd_model.pth"),
     "model-2": load_model(get_denseNet(),"asd_model_denseNet.pth"),
-    "model-3": load_model(get_ConvNext(),"asd_model_ConveXtiny.pth"),
-    "model-4": load_model(get_EfficientNet(),"asd_model_efficientNet.pth"),
+    "model-3": load_model(get_EfficientNet(),"asd_model_efficientNet.pth"),
 }
 
 def predict(model, image_bytes):
