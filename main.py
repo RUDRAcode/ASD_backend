@@ -4,7 +4,7 @@ import io
 from PIL import Image, ImageDraw
 from utils import load_model, predict
 from fastapi.middleware.cors import CORSMiddleware
-from utils import get_denseNet,get_resNet,cam_Overlay
+from utils import get_EfficientNet,get_denseNet,get_resNet,cam_Overlay
 import base64
 
 app = FastAPI()
@@ -20,6 +20,7 @@ app.add_middleware(
 models = {
     "model-1": load_model(get_resNet(),"asd_model.pth"),
     "model-2": load_model(get_denseNet(),"asd_model_denseNet.pth"),
+    "model-3": load_model(get_EfficientNet(),"asd_model_efficientNet.pth"),
 }
 
 @app.get("/")
